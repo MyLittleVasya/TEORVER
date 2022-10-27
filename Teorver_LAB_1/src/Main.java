@@ -5,13 +5,14 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         var data = DataReader.readData("D:\\Education\\teorver\\lab1\\Lab 1.2\\task_01_data\\input_10.txt");
+        DecimalFormat format = new DecimalFormat("0.000");
         var listOfData = new ArrayList<Integer>();
         File output = new File("output.txt");
         var writerStream = new OutputStreamWriter(new PrintStream(output));
@@ -50,6 +51,7 @@ public class Main {
             }
         }
 
+
         var sorted = new ArrayList<Integer>(listOfData);
         Collections.sort(sorted);
 
@@ -69,12 +71,12 @@ public class Main {
         writerStream.write("\n");
         //END
 
+        //DISPERSION
         var total = 0;
         for (var number: listOfData) {
             total+=number;
         }
         var average = (double) total / listOfData.size();
-
         var strange_average = 0;
         for (var number : listOfData) {
             strange_average += Math.pow(number, 2);
@@ -85,11 +87,18 @@ public class Main {
 
         var av_sq_dis = Math.sqrt(dispersion);
 
-        System.out.println(dispersion + " " + av_sq_dis);
+        System.out.println(format.format(dispersion) + " " + format.format(av_sq_dis));
         writerStream.write(dispersion + " " + av_sq_dis);
+        //END
 
+        //CREATING HISTOGRAM
         final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        for (var film: frequencyTable.keySet()) {
+        var films = new ArrayList<Integer>();
+        for (var film: sorted) {
+            if (!films.contains(film))
+                films.add(film);
+        }
+        for (var film: films) {
             dataset.addValue(frequencyTable.get(film), film, film);
         }
         JFreeChart barChart = ChartFactory.createBarChart(
