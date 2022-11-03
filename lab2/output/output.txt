@@ -1,3 +1,0 @@
-25th percentile is: 45.5
-50th percentile is: 51.0
-75th percentile is: 56.5

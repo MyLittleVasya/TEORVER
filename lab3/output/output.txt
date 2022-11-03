@@ -1,0 +1,4 @@
+Center of weight G(3.892;35.0)
+Covatiation is 23.0
+Line of regression is y=9.953x + -3.735
+Coefficient of corelation is 0.901
