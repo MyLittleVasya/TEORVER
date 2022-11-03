@@ -1,0 +1,17 @@
+25th percentile is: 62.75
+75th percentile is: 93.75
+90th percentile is: 99.5
+Squeare deviation is 17.174399552822802
+Squeare deviation is 17.174399552822802
+Standart deviation is 0.712
+[88.6, 92.78, 93.35, 93.54, 94.3, 94.3, 96.96000000000001, 98.1, 99.05, 100.0]
+4 |  0
+6 |  2 5 6
+7 |  0 0
+8 |  4
+9 |  0 5
+10 |  0
+key 6|2 = 62
+25th percentile is: 62.75
+50th percentile is: 70.0
+75th percentile is: 93.75
